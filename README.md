@@ -1,3 +1,14 @@
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=bugs)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
+
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 # Birch Config Server
 
 An out-of-the-box Spring Cloud Config Server with simplified customizations.  This implementation is essentially
@@ -44,8 +55,8 @@ when running the config server using Java instead of Docker.
 ## Filesystem Backend
 This mode uses the local filesystem as the config source.  To enable this mode, use the following environment variables:
 ```shell
-SPRING_PROFILES_ACTIVE=native
-CONFIG_REPO=C:/path/to/config-dir
+SPRING_PROFILES_ACTIVE=native                             # required
+CONFIG_REPO=C:/path/to/config-dir                         # required
 ```
 
 ## Git Backend

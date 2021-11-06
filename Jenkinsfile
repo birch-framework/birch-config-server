@@ -75,7 +75,7 @@ node {
 
    stage ('Test and Install') {
       withMaven(mavenSettingsConfig: 'Birch-Maven-Settings') {
-         bat "mvn clean install -P ci"
+         bat "mvn clean install"
       }
    }
 

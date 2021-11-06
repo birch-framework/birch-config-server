@@ -1,0 +1,25 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config
+  config:
+    name: ${spring.application.name}
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: ${config.repo}
+        git:
+          uri: ${git.url}
+          username: ${git.username}
+          password: ${git.password}
+          clone-on-start: ${git.clone.on.start:false}
+          delete-untracked-branches: ${git.delete.untracked.branches:true}
+          force-pull: ${git.force.pull:true}
+          skip-ssl-validation: ${git.skip.ssl.validation:false}
+          timeout: ${git.timeout:5}
+          refresh-rate: ${git.refresh.rate:0}
+          basedir: ${git.basedir:${java.io.tmpdir}}
+          default-label: ${git.default.branch:master}

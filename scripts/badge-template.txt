@@ -1,0 +1,1 @@
+[![Build Status](https://jenkins.khalichi.com/buildStatus/icon?job=BirchConfig/BRANCH_NAME&style=plastic)](https://jenkins.khalichi.com/job/BirchConfig/job/BRANCH_NAME/)

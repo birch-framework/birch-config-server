@@ -56,7 +56,7 @@ class Globals {
    }
 }
 
-node {
+node('ubuntu-node') {
    // Configure JDK 11
    jdk = tool name: 'GraalVM-JDK11' // Tool name from Jenkins configuration
    env.JAVA_HOME = "${jdk}"

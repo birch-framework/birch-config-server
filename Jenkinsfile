@@ -47,7 +47,7 @@ class Globals {
             branchType = BranchType.RELEASE
          }
          else {
-            version = (projectVersion == null || projectVersion.isEmpty ()) ? "latest" : projectVersion
+            version = "latest"
             if (theBranchName == 'master') {
                branchType = BranchType.MASTER
             }
@@ -68,9 +68,6 @@ node('ubuntu-node') {
    stage ('Configuration') {
       def projectVersion = sh(returnStdout: true, script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout').trim()
       Globals.setVersionInfo(env.BRANCH_NAME as String, projectVersion as String)
-      withMaven(mavenSettingsConfig: 'Birch-Maven-Settings') {
-         sh "mvn clean -version"
-      }
    }
 
    stage ('Test and Install') {

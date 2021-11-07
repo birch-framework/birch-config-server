@@ -88,7 +88,7 @@ node('ubuntu-node') {
    stage ('Docker Build') {
       if (Globals.branchType == BranchType.MASTER || Globals.branchType == BranchType.RELEASE) {
          def tag = Globals.branchType == BranchType.MASTER ? "latest" : Globals.version
-         docker.withRegistry("https://${Globals.DOCKER_REG}", "${Globals.DOCKER_REG_CREDENTIALS}") {
+         docker.withRegistry("https://${Globals.DOCKER_REG}", ${Globals.DOCKER_REG_CREDENTIALS}) {
             def image = docker.build("${Globals.DOCKER_REG}/${Globals.DOCKER_IMAGE_NAME}:${tag}", "--build-arg VERSION=${Globals.version} -f ${env.WORKSPACE}/${Globals.DOCKERFILE_BASE_PATH}/Dockerfile .")
             image.push(tag)
          }

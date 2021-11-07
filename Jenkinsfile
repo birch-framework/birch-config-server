@@ -69,13 +69,13 @@ node('ubuntu-node') {
       def projectVersion = sh(returnStdout: true, script: 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout').trim()
       Globals.setVersionInfo(env.BRANCH_NAME as String, projectVersion as String)
       withMaven(mavenSettingsConfig: 'Birch-Maven-Settings') {
-         bat "mvn clean -version"
+         sh "mvn clean -version"
       }
    }
 
    stage ('Test and Install') {
       withMaven(mavenSettingsConfig: 'Birch-Maven-Settings') {
-         bat "mvn clean install"
+         sh "mvn clean install"
       }
    }
 
@@ -83,7 +83,7 @@ node('ubuntu-node') {
       withCredentials([string(credentialsId: 'Sonar-Token', variable: 'TOKEN')]) {
          env.SONAR_TOKEN = "${TOKEN}"
          withMaven(mavenSettingsConfig: 'Birch-Maven-Settings') {
-            bat "mvn sonar:sonar"
+            sh "mvn sonar:sonar"
          }
       }
    }

@@ -47,7 +47,7 @@ class Globals {
             branchType = BranchType.RELEASE
          }
          else {
-            version = "latest"
+            version = projectVersion
             if (theBranchName == 'master') {
                branchType = BranchType.MASTER
             }
@@ -87,10 +87,11 @@ node('ubuntu-node') {
 
    stage ('Docker Build') {
       if (Globals.branchType == BranchType.MASTER || Globals.branchType == BranchType.RELEASE) {
+         def tag = Globals.branchType == BranchType.MASTER ? "latest" : Globals.version
          withCredentials([usernamePassword (credentialsId: "${Globals.DOCKER_REG_CREDENTIALS}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
             docker.withRegistry("https://${Globals.DOCKER_REG}", "${Globals.DOCKER_REG_CREDENTIALS}") {
-               def image = docker.build("${Globals.DOCKER_REG}/${Globals.DOCKER_IMAGE_NAME}:${Globals.version}", "--build-arg VERSION=${Globals.version} -f ${env.WORKSPACE}/${Globals.DOCKERFILE_BASE_PATH}/Dockerfile .")
-               image.push(Globals.version)
+               def image = docker.build("${Globals.DOCKER_REG}/${Globals.DOCKER_IMAGE_NAME}:${tag}", "--build-arg VERSION=${Globals.version} -f ${env.WORKSPACE}/${Globals.DOCKERFILE_BASE_PATH}/Dockerfile .")
+               image.push(tag)
             }
          }
       }

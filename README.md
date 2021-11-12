@@ -7,6 +7,7 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
 
+![GitHub tag checks state](https://img.shields.io/github/checks-status/birch-framework/birch-config-server/HEAD?style=plastic)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 # Birch Config Server

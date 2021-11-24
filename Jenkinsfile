@@ -58,8 +58,7 @@ class Globals {
 
 node('ubuntu-node') {
    // Configure JDK 11
-   jdk = tool name: 'GraalVM-JDK11' // Tool name from Jenkins configuration
-   env.JAVA_HOME = "${jdk}"
+   env.JAVA_HOME = tool name: 'GraalVM-JDK11' // Tool name from Jenkins configuration
 
    stage ('Clone') {
       checkout scm
@@ -78,14 +77,14 @@ node('ubuntu-node') {
 
    stage ('Quality Analysis') {
       withCredentials([string(credentialsId: 'Sonar-Token', variable: 'TOKEN')]) {
-         env.SONAR_TOKEN = "${TOKEN}"
+         env.SONAR_TOKEN = TOKEN
          withMaven(mavenSettingsConfig: 'Birch-Maven-Settings') {
-            sh "mvn sonar:sonar"
+            sh "mvn sonar:sonar -Dsonar.branch.name=${env.BRANCH_NAME}"
          }
       }
    }
 
-   stage ('Docker Build') {
+   stage ('Docker Image') {
       if (Globals.branchType == BranchType.MASTER || Globals.branchType == BranchType.RELEASE) {
          def tag = Globals.branchType == BranchType.MASTER ? "latest" : Globals.version
          docker.withRegistry("https://${Globals.DOCKER_REG}", Globals.DOCKER_REG_CREDENTIALS) {

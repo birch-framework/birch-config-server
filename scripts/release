@@ -36,9 +36,6 @@ NEXT_VERSION=`echo "${VERSION%.*}.$((${VERSION##*.}+1))"`
 read -e -p "Next development version: " -i ${NEXT_VERSION}-SNAPSHOT NEXT_VERSION
 [ $? -ne 0 ] && exit 6
 
-mvn clean install
-[ $? -ne 0 ] && exit 4
-
 TAG=${ARTIFACT_ID}-${VERSION}
 git tag -a ${TAG} -m "release ${VERSION}"
 [ $? -ne 0 ] && exit 7

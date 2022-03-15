@@ -76,9 +76,8 @@ node('ubuntu-node') {
    }
 
    stage ('Quality Analysis') {
-      withCredentials([string(credentialsId: 'Sonar-Token', variable: 'TOKEN')]) {
-         env.SONAR_TOKEN = TOKEN
-         withMaven(mavenSettingsConfig: 'Birch-Maven-Settings') {
+      withSonarQubeEnv(installationName: 'SonarCloud (Birch Framework)', envOnly: true) {
+         withMaven (mavenSettingsConfig: 'Birch-Maven-Settings') {
             sh "mvn sonar:sonar -Dsonar.branch.name=${env.BRANCH_NAME}"
          }
       }

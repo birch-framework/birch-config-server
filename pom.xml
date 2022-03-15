@@ -19,7 +19,7 @@
    <groupId>org.birchframework.config</groupId>
    <artifactId>birch-config-server</artifactId>
    <packaging>jar</packaging>
-   <version>1.0.0-SNAPSHOT</version>
+   <version>1.1.0-SNAPSHOT</version>
 
    <name>${project.artifactId}</name>
    <description>Birch Framework Spring Cloud Config Server</description>
@@ -66,12 +66,12 @@
    <parent>
       <groupId>org.birchframework</groupId>
       <artifactId>birch-starter</artifactId>
-      <version>1.1.2</version>
+      <version>1.3.0</version>
    </parent>
 
    <properties>
       <start-class>org.birchframework.config.server.ConfigServer</start-class>
-      <spring-cloud-config-server.version>3.0.5</spring-cloud-config-server.version>
+      <spring-cloud-config-server.version>3.1.1</spring-cloud-config-server.version>
       <jaxrs.version>2.1.1</jaxrs.version>
    </properties>
 

@@ -56,7 +56,7 @@ class Globals {
    }
 }
 
-node('ubuntu-node') {
+node('ubuntu-docker-agents') {
    // Configure JDK 11
    env.JAVA_HOME = tool name: 'GraalVM-JDK11' // Tool name from Jenkins configuration
 

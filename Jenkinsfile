@@ -78,7 +78,7 @@ node('ubuntu-docker-agents') {
    stage ('Quality Analysis') {
       withSonarQubeEnv(installationName: 'SonarCloud (Birch Framework)', envOnly: true) {
          withMaven (mavenSettingsConfig: 'Birch-Maven-Settings') {
-            sh "mvn sonar:sonar -Dsonar.branch.name=${env.BRANCH_NAME}"
+            sh "mvn sonar:sonar -P bci -Dsonar.branch.name=${env.BRANCH_NAME}"
          }
       }
    }
@@ -86,8 +86,13 @@ node('ubuntu-docker-agents') {
    stage ('Docker Image') {
       if (Globals.branchType == BranchType.MASTER || Globals.branchType == BranchType.RELEASE) {
          def tag = Globals.branchType == BranchType.MASTER ? "latest" : Globals.version
+         def jarFile = "${env.WORKSPACE}/target/birch-config-server-${Globals.version}.jar"
+//         echo "Dockerfile location: ${env.WORKSPACE}/${Globals.DOCKERFILE_BASE_PATH}.  Contents:"
+//         sh "cat ${env.WORKSPACE}/${Globals.DOCKERFILE_BASE_PATH}/Dockerfile"
+//         echo "${env.WORKSPACE}/target/birch-config-server-${Globals.version}.jar contents:"
+//         sh "jar tvf ${env.WORKSPACE}/target/birch-config-server-${Globals.version}.jar"
          docker.withRegistry("https://${Globals.DOCKER_REG}", Globals.DOCKER_REG_CREDENTIALS) {
-            def image = docker.build("${Globals.DOCKER_REG}/${Globals.DOCKER_IMAGE_NAME}:${tag}", "--build-arg VERSION=${Globals.version} -f ${env.WORKSPACE}/${Globals.DOCKERFILE_BASE_PATH}/Dockerfile .")
+            def image = docker.build("${Globals.DOCKER_REG}/${Globals.DOCKER_IMAGE_NAME}:${tag}", "--build-arg JARFILE=${jarFile} ./${Globals.DOCKERFILE_BASE_PATH}")
             image.push(tag)
          }
       }

@@ -12,10 +12,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #####################################################################
 FROM openjdk:11.0.11-jdk-slim
-ARG VERSION
-ENV JARFILE birch-config-server-${VERSION}.jar
-RUN mkdir jars
-COPY target/${JARFILE} /jars
+ARG JARFILE
 WORKDIR /jars
+COPY ${JARFILE} /jars
 EXPOSE 8888
 ENTRYPOINT ["java", "-Xmx64m", "-jar ${JARFILE}"]

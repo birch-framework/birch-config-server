@@ -11,9 +11,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #####################################################################
-FROM openjdk:11.0.11-jdk-slim
 ARG JARFILE
+FROM openjdk:11.0.11-jdk-slim
 WORKDIR /jars
-COPY ${JARFILE} /jars
+COPY /${JARFILE} /jars
 EXPOSE 8888
 ENTRYPOINT ["java", "-Xmx64m", "-jar ${JARFILE}"]

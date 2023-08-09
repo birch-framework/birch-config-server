@@ -87,10 +87,6 @@ node('ubuntu-docker-agents') {
       if (Globals.branchType == BranchType.MASTER || Globals.branchType == BranchType.RELEASE) {
          def tag = Globals.branchType == BranchType.MASTER ? "latest" : Globals.version
          def jarFile = "${env.WORKSPACE}/target/birch-config-server-${Globals.version}.jar"
-//         echo "Dockerfile location: ${env.WORKSPACE}/${Globals.DOCKERFILE_BASE_PATH}.  Contents:"
-//         sh "cat ${env.WORKSPACE}/${Globals.DOCKERFILE_BASE_PATH}/Dockerfile"
-//         echo "${env.WORKSPACE}/target/birch-config-server-${Globals.version}.jar contents:"
-//         sh "jar tvf ${env.WORKSPACE}/target/birch-config-server-${Globals.version}.jar"
          docker.withRegistry("https://${Globals.DOCKER_REG}", Globals.DOCKER_REG_CREDENTIALS) {
             def image = docker.build("${Globals.DOCKER_REG}/${Globals.DOCKER_IMAGE_NAME}:${tag}", "--build-arg JARFILE=${jarFile} ./${Globals.DOCKERFILE_BASE_PATH}")
             image.push(tag)

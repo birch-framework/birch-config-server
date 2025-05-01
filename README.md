@@ -1,11 +1,11 @@
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/summary/new_code?id=birch-framework_birch-config-server)
 
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=bugs)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=org.birchframework.config%3Abirch-config-server&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=org.birchframework.config%3Abirch-config-server)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=birch-framework_birch-config-server&metric=bugs)](https://sonarcloud.io/summary/new_code?id=birch-framework_birch-config-server)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=birch-framework_birch-config-server&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=birch-framework_birch-config-server)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=birch-framework_birch-config-server&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=birch-framework_birch-config-server)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=birch-framework_birch-config-server&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=birch-framework_birch-config-server)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=birch-framework_birch-config-server&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=birch-framework_birch-config-server)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=birch-framework_birch-config-server&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=birch-framework_birch-config-server)
 
 ![GitHub tag checks state](https://img.shields.io/github/checks-status/birch-framework/birch-config-server/HEAD?style=plastic)
 
